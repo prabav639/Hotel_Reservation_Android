@@ -13,7 +13,7 @@
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="20sp"
+        android:textSize="40sp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Booking Confirmed"/>
 
@@ -25,5 +25,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/tick"/>
+        android:background="@drawable/tick1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
