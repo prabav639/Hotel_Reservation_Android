@@ -49,47 +49,21 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         headingTextView.setText("Welcome! Displaying hotel(s) for " + numberOfGuests + " guests staying from " + checkInDate +
                 " to " + checkOutDate);
 
-
-        // Set up the RecyclerView
-//        ArrayList<HotelListData> hotelListData = initHotelListData();
-//        RecyclerView recyclerView = view.findViewById(R.id.hotel_list_recyclerView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        HotelListAdapter hotelListAdapter = new HotelListAdapter(getActivity(), hotelListData);
-//        recyclerView.setAdapter(hotelListAdapter);
         getHotelsListsData();
     }
 
-//    public ArrayList<HotelListData> initHotelListData() {
-//        ArrayList<HotelListData> list = new ArrayList<>();
-//
-//        list.add(new HotelListData("Halifax Regional Hotel", "2000$", "true"));
-//        list.add(new HotelListData("Hotel Pearl", "500$", "false"));
-//        list.add(new HotelListData("Hotel Amano", "800$", "true"));
-//        list.add(new HotelListData("San Jones", "250$", "false"));
-//        list.add(new HotelListData("Halifax Regional Hotel", "2000$", "true"));
-//        list.add(new HotelListData("Hotel Pearl", "500$", "false"));
-//        list.add(new HotelListData("Hotel Amano", "800$", "true"));
-//        list.add(new HotelListData("San Jones", "250$", "false"));
-//
-//        return list;
-//    }
 
     private void getHotelsListsData() {
         progressBar.setVisibility(View.VISIBLE);
         Api.getClient().getHotelsLists(new Callback<List<HotelListData>>() {
             @Override
             public void success(List<HotelListData> userListResponses, Response response) {
-                // in this method we will get the response from API
                 userListResponseData = userListResponses;
-
-
-                // Set up the RecyclerView
                 setupRecyclerView();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                // if error occurs in network transaction then we can get the error in this method.
                 Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
 
             }
@@ -102,8 +76,6 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         HotelListAdapter hotelListAdapter = new HotelListAdapter(getActivity(), userListResponseData);
         recyclerView.setAdapter(hotelListAdapter);
-
-        //Bind the click listener
         hotelListAdapter.setClickListener(this);
     }
 
@@ -120,6 +92,10 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         bundle.putString("name", name);
         bundle.putString("price", price);
         bundle.putString("available", available);
+        bundle.putString("check in date", getArguments().getString("check in date"));
+        bundle.putString("check out date", getArguments().getString("check out date"));
+        bundle.putString("number of guests", getArguments().getString("number of guests"));
+
 
         HotelGuestDetailsFragment hotelGuestDetailsFragment = new HotelGuestDetailsFragment();
         hotelGuestDetailsFragment.setArguments(bundle);

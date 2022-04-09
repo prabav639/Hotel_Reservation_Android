@@ -101,7 +101,7 @@ public class HotelSearchFragment extends Fragment {
                 //Get input of guests count
                 numberOfGuests = guestsCountEditText.getText().toString();
                 if(guestsCountEditText.length()!=0 && nameEditText.length()!=0) {
-                    searchButton.setText("Dear" +guestName+ ", Your check in date is " + checkInDate + ", " +
+                    searchTextConfirmationTextView.setText("Dear" +guestName+ ", Your check in date is " + checkInDate + ", " +
                             "your checkout date is " + checkOutDate + ".The number of guests are " + numberOfGuests);
 
                     Bundle bundle = new Bundle();
@@ -167,19 +167,6 @@ public class HotelSearchFragment extends Fragment {
     }
 
 
-    // Function to get the date object
-//    private String getDateFromCalendar(){
-//        int day = checkInDatePicker.getDayOfMonth();
-//        int month = checkInDatePicker.getMonth();
-//        int year = checkInDatePicker.getYear();
-//
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.set(year,month,day);
-//
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        String formattedDate = simpleDateFormat.format(calendar.getTime());
-//
-//        return formattedDate;
-//    }
+
 
 }
