@@ -1,5 +1,6 @@
 package com.example.hotel_application;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,7 +44,7 @@ public ArrayList<GuestListData> getGuests(){
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if(position == numberOfGuests-1) {
             for (int i = 0; i < numberOfGuests; i++) {
                 GuestListData guestListData = new GuestListData();
@@ -70,9 +71,9 @@ public ArrayList<GuestListData> getGuests(){
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(checkedId==0)
-                    guestList.get(position).setGender("F");
+                    guestList.get(position).setGender("Female");
                 else
-                    guestList.get(position).setGender("M");
+                    guestList.get(position).setGender("Male");
             }
         });
 //holder.gender_button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

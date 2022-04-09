@@ -160,7 +160,7 @@ public class HotelSearchFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = simpleDateFormat.format(calendar.getTime());
 
         return formattedDate;
